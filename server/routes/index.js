@@ -12,9 +12,6 @@ router.post("/sign-up", userController.create_user);
 // Login user
 router.post("/login", userController.login_user);
 
-// Logout
-router.post("/logout", userController.logout);
-
 // Update user
 router.post("/become-member", userController.verifyToken, userController.become_member);
 

@@ -76,22 +76,8 @@ export const AuthProvider = ({ children }) => {
     };
 
     const logout = () => {
-        const token = localStorage.getItem("authToken");
-        setLoading(true);
-        fetch("/api/logout", {
-            method: "POST",
-            headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.error) return;
-                setUser(null);
-                localStorage.clear();
-            })
-            .catch((error) => {
-                console.error("Logout failed:", error);
-            })
-            .finally(() => setLoading(false));
+        setUser(null);
+        localStorage.clear();
     };
 
     const signUp = (user) => {

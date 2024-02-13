@@ -124,15 +124,6 @@ exports.login_user = [
     }),
 ];
 
-exports.logout = (req, res, next) => {
-    try {
-        const token = req.header("Authorization").split(" ")[1];
-        res.status(200).json({ message: "success" });
-    } catch (err) {
-        res.status(404).json({ error: err.message });
-    }
-};
-
 exports.become_admin = asyncHandler(async (req, res, next) => {
     try {
         if (req.body.code === "secretcode") {
